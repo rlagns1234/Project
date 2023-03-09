@@ -1,0 +1,106 @@
+package Gambling;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+@SuppressWarnings("serial")
+public class Slot extends JFrame implements ActionListener {
+	int money;
+	Random random = new Random();
+	int first = random.nextInt(9);
+	int second = random.nextInt(9);
+	int third = random.nextInt(9);
+	ImageIcon background = new ImageIcon("GamblingImage/SlotMachine.jpg");
+	Image back = background.getImage();
+	ImageIcon bgimg = new ImageIcon(back.getScaledInstance(975, 673,  java.awt.Image.SCALE_SMOOTH));
+	JLabel bg = new JLabel(bgimg);
+	
+	ImageIcon ChipAdd = new ImageIcon("GamblingImage/ChipAdd.jpg");
+	Image chipadd = ChipAdd.getImage();
+	ImageIcon caimg = new ImageIcon(chipadd.getScaledInstance(200, 70,  java.awt.Image.SCALE_SMOOTH));
+	JButton ca = new JButton(caimg);
+	
+	ImageIcon ChipAddClick = new ImageIcon("GamblingImage/addclick.png");
+	Image chipaddclick = ChipAddClick.getImage();
+	ImageIcon cacimg = new ImageIcon(chipaddclick.getScaledInstance(200, 70,  java.awt.Image.SCALE_SMOOTH));
+	
+	ImageIcon StartButton = new ImageIcon("GamblingImage/StartButton.jpg");
+	Image startbutton = StartButton.getImage();
+	ImageIcon sbimg = new ImageIcon(startbutton.getScaledInstance(200, 100,  java.awt.Image.SCALE_SMOOTH));
+	JButton st = new JButton(sbimg);
+	
+	ImageIcon StartButtonClick = new ImageIcon("GamblingImage/stclick.png");
+	Image startbuttonclick = StartButtonClick.getImage();
+	ImageIcon stcimg = new ImageIcon(startbuttonclick.getScaledInstance(200, 100,  java.awt.Image.SCALE_SMOOTH));
+	
+	Image chipBox[] = new Image[] {
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/RedChip.jpg"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/OrangeChip.jpg"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/YellowChip.jpg"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/GreenChip.jpg"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/BlueChip.jpg"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/DeepblueChip.jpg"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/PurpleChip.jpg"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/GrayChip.jpg"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/BlackChip.jpg")
+	};
+	
+	Slot() {
+
+		super.setTitle("¡Ú Slot Machine ¡Ú");
+		super.setLocation(500, 200);
+		super.setSize(980, 700);
+		super.setLayout(null);
+		super.setResizable(false);
+		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		super.setVisible(true);
+		st.setPressedIcon(stcimg);
+		ca.setPressedIcon(cacimg);
+		st.setBorderPainted(false);
+		st.setContentAreaFilled(false);
+		st.setFocusPainted(false);
+		ca.setBorderPainted(false);
+		ca.setContentAreaFilled(false);
+		ca.setFocusPainted(false);
+		bg.setBounds(0, 0, 975, 673);
+		st.setBounds(400, 520, 200, 100);
+		ca.setBounds(670, 435, 200, 100);
+		add(st);
+		add(ca);
+		add(bg);
+		st.addActionListener(this);
+		ca.addActionListener(this);
+	}
+
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.setColor(Color.red);
+		g.setFont(new Font("", Font.BOLD, 40));
+		g.drawString(money+"", 210, 525);
+		g.drawImage(chipBox[first], 95, 170, 200, 200, this);
+		g.drawImage(chipBox[second], 394, 170, 200, 200, this);
+		g.drawImage(chipBox[third], 691, 170, 200, 200, this);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		
+	}
+	
+
+	public static void main(String[] args) {
+		new Slot();
+
+	}
+}

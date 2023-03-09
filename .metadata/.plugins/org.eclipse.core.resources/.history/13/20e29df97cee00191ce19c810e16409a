@@ -1,0 +1,61 @@
+package Gambling;
+
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JFrame;
+
+@SuppressWarnings("serial")
+public class Sniffling extends JFrame implements KeyListener, Runnable{
+//	Image snifflingImg = Toolkit.getDefaultToolkit().getImage("GamblingImage/800px_COLOURBOX14376608.png");
+	Image color[] = new Image[] {
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/Grey.png"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/Blue.png"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/Red.png")
+	};
+	
+	Image check[] = new Image[] {
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/Greycheck.png"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/Bluecheck.png"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/RedcheckRed.png")
+	};
+	
+	Sniffling(){
+		setSize(1000, 600);
+		super.setVisible(true);
+		super.addKeyListener(this);
+		super.setLocationRelativeTo(null);
+		super.setResizable(false);
+		super.setIconImage(Start.icon);
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public static void main(String[] args) {
+		new Sniffling();
+	}
+}

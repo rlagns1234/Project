@@ -1,0 +1,62 @@
+package Gambling;
+
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+@SuppressWarnings("serial")
+public class Sniffling extends JFrame implements ActionListener{
+//	Image snifflingImg = Toolkit.getDefaultToolkit().getImage("GamblingImage/800px_COLOURBOX14376608.png");
+	Image color[] = new Image[] {
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/Grey.png"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/Blue.png"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/Red.png")
+	};
+	
+	Image check[] = new Image[] {
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/Greycheck.png"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/Bluecheck.png"),
+			Toolkit.getDefaultToolkit().getImage("GamblingImage/RedcheckRed.png")
+	};
+	
+	ImageIcon BlueIcon = new ImageIcon("GamblingImage/Blue.png");
+	ImageIcon RedIcon = new ImageIcon("GamblingImage/Red.png");
+	
+	JButton Blue = new JButton(BlueIcon);
+	JButton Red = new JButton(RedIcon);
+	
+	Sniffling(){
+		setSize(1000, 600);
+		super.setVisible(true);
+		super.setLocationRelativeTo(null);
+		super.setResizable(false);
+		super.setIconImage(Start.icon);
+		Blue.setBounds(100, 100, 10, 10);
+		Red.setBounds(50, 50, 10, 10);
+		super.add(Blue);
+		super.add(Red);
+		super.setVisible(true);
+	}
+
+//	@Override
+//	public void run() {
+//		// TODO Auto-generated method stub
+//		
+//	}
+	
+	public static void main(String[] args) {
+		new Sniffling();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+}

@@ -1,0 +1,53 @@
+package Gambling;
+
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+
+@SuppressWarnings("serial")
+public class Game extends JFrame implements ActionListener{
+	static Game g;
+	Button b1 = new Button("¼Ò¼È±×·¡ÇÁ");
+	Button b2 = new Button("UP&DOWN");
+	Button b3 = new Button("½½·Ô¸Ó½Å");
+	Button b4 = new Button("È¦Â¦°ÔÀÓ");
+	
+	Game(){
+		super.setSize(400, 400);
+		super.setLayout(null);
+		super.setLocationRelativeTo(null);
+		super.setVisible(true);
+		super.setIconImage(Start.icon);
+		b1.setFont(new Font("", Font.BOLD, 15));
+		b1.setBackground(Color.white);
+		b2.setBackground(Color.white);
+		b3.setBackground(Color.white);
+		b4.setBackground(Color.white);
+		b1.setBounds(20, 80, 200, 100);
+		super.add(b1);
+		super.add(b2);
+		super.add(b3);
+		super.add(b4);
+	}
+	
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.drawImage(Start.icon, 25, 35, 350, 350, this);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public static void main(String[] args) {
+		g = new Game();
+	}
+	
+}

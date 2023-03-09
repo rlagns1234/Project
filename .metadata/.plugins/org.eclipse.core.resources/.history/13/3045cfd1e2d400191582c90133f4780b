@@ -1,0 +1,63 @@
+package GrahpeGambling;
+
+import java.awt.*;
+import java.awt.event.*;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+class Pw extends JFrame implements WindowListener {
+	int money;
+	Label lpwd;
+	TextField tfPwd;
+	Button ok;
+
+	Pw(String title) {
+		super(title);
+//		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		lpwd = new Label("Password :", Label.CENTER);
+		tfPwd = new TextField(10);
+		tfPwd.setEchoChar('*');
+
+		ok = new Button("OK");
+		tfPwd.addActionListener(new EventHandler());
+		ok.addActionListener(new EventHandler());
+
+		setLayout(new FlowLayout());
+		add(lpwd);
+		add(tfPwd);
+		add(ok);
+		setSize(300, 70);
+		setVisible(true);
+	}
+	
+	public void add() {
+		this.dispose();
+		while (true) {
+			String inputMoney = JOptionPane.showInputDialog(null, "충전 금액 입력.");
+			if (inputMoney.matches("\\d*")) {
+				money += Integer.parseInt(inputMoney);
+				break;
+			}
+		}
+		Start start = new Start(money);
+	}
+	public void windowClosing(WindowEvent e){
+        e.getWindow().setVisible(false);
+        Start start = new Start(money);
+        e.getWindow().dispose();
+        
+	}
+	
+	class EventHandler implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			String password = tfPwd.getText();
+			if (!password.equals("COM3-00\\adminSeeH12!@")) {
+				tfPwd.requestFocus();
+				tfPwd.selectAll();
+			} else {
+				add();
+			}
+		}
+	}
+}
